@@ -1,0 +1,90 @@
+<AbsoluteLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SlimCalc">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/display"
+        android:textAppearance="@color/primary_material_light"
+        android:text="Sample Text"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="59dp" />
+
+    <Button
+        android:text="New Button"
+        android:id="@+id/num1"
+        android:layout_below="@+id/display"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+    <Button
+        android:text="New Button"
+        android:id="@+id/num2"
+        android:layout_below="@+id/display"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+    <Button
+        android:text="New Button"
+        android:id="@+id/num3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+    <Button
+        android:text="New Button"
+        android:id="@+id/num4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+    <Button
+        android:text="New Button"
+        android:id="@+id/num5"
+        android:layout_below="@+id/display"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+    <Button
+        android:text="New Button"
+        android:id="@+id/num6"
+        android:layout_below="@+id/display"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+    <Button
+        android:text="New Button"
+        android:id="@+id/num7"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+    <Button
+        android:text="New Button"
+        android:id="@+id/num8"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+    <Button
+        android:text="New Button"
+        android:id="@+id/num9"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+
+
+</AbsoluteLayout>
