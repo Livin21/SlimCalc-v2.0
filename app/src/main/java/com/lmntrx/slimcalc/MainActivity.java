@@ -2,55 +2,51 @@ package com.lmntrx.slimcalc;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Vibrator;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.lmntrx.slimcalc.SettingsActivity.*;
+
+import java.util.Map;
+import java.util.Set;
+import java.util.prefs.Preferences;
 
 
 public class MainActivity extends ActionBarActivity {
-    Button btn1;
-    Button btn2;
-    Button btn3;
-    Button btn4;
-    Button btn5;
-    Button btn6;
-    Button btn7;
-    Button btn8;
-    Button btn9;
-    Button btn0;
-    Button btnAdd;
-    Button btnSub;
-    Button btnMultiply;
-    Button btnDivide;
-    Button btnClear;
-    Button btnA;
-    Button btnB;
-    Button btnC;
-    Button btnEquals;
-    Button btnDot;
+    Button btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn0,btnAdd,btnSub,btnMultiply,btnDivide,btnA,btnB,btnC,btnEquals,btnDot,btnClear;
     TextView Display;
-    String operator="";
+    String operator="",lastPress="",op="";
     double a=0;
-    String lastPress="";
-    String op="";
-    boolean memoryCleared=false;
-    boolean longClickA=false, longClickB=false, longClickBack=false;
-    boolean negativeInitiated;
+    boolean memoryCleared=false,longClickA=false, longClickB=false, longClickBack=false,negativeInitiated,isVibrationOn,isThemeDark;
     Context con;
     MenuItem about;
     Vibrator mVibrator;
+    SettingsActivity settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        settings=new SettingsActivity();
+        settings.con=getApplicationContext();
+        /*settings.vibrateCB=(CheckBox)findViewById(R.id.vibrate_cb);
+        settings.themeCB=(CheckBox)findViewById(R.id.theme_cb);*/
+        //-----------------------************////////////////
+        SharedPreferences sp= PreferenceManager.getDefaultSharedPreferences(settings.con);
+        isVibrationOn=sp.getBoolean("VIBRATE_CHECKBOX",true);
+        isThemeDark=sp.getBoolean("THEME_CHECKBOX",true);
+
         mVibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+
         btn1=(Button)findViewById(R.id.btn1);
         btn2=(Button)findViewById(R.id.btn2);
         btn3=(Button)findViewById(R.id.btn3);
@@ -536,19 +532,28 @@ public class MainActivity extends ActionBarActivity {
     public void equal(View v){
         switch (operator){
             case "+":{
-                Display.setText(Double.parseDouble(Display.getText()+"")+a+"");
+                try {
+                    Display.setText(Double.parseDouble(Display.getText()+"")+a+"");
+                }catch (Exception e){}
                 break;
             }
             case "-":{
-                Display.setText(a-Double.parseDouble(Display.getText()+"")+"");
+                try {
+                    Display.setText(a-Double.parseDouble(Display.getText()+"")+"");
+                }catch (Exception e){}
                 break;
             }
             case "*":{
-                Display.setText(a*Double.parseDouble(Display.getText()+"")+"");
+                try {
+                    Display.setText(a*Double.parseDouble(Display.getText()+"")+"");
+                }catch (Exception e){}
                 break;
+
             }
             case "/":{
-                Display.setText(a/Double.parseDouble(Display.getText()+"")+"");
+                try {
+                    Display.setText(a/Double.parseDouble(Display.getText()+"")+"");
+                }catch (Exception e){}
                 break;
             }
         }
@@ -664,10 +669,20 @@ public class MainActivity extends ActionBarActivity {
             Intent intent=new Intent(con,About.class);
             startActivity(intent);
         }
+        else if (id == R.id.action_settings) {
+            Intent intent=new Intent(con,SettingsActivity.class);
+            startActivity(intent);
+        }
         return super.onOptionsItemSelected(item);
     }
     public void vibrate(long l){
-        mVibrator.vibrate(l);
+
+        if (isVibrationOn) {
+            mVibrator.vibrate(l);
+        }
+        else if ((isVibrationOn+"").equals("")){
+            mVibrator.vibrate(l);
+        }
     }
 
     }
