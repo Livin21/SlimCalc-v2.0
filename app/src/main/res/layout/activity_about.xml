@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Version 1.0"
+            android:text="Version 1.2"
             android:id="@+id/version"
             android:layout_gravity="center_horizontal" />
 
@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="http://www.lmntrx.com/slimcalc"
+            android:text="http://www.lmntrx.com"
             android:id="@+id/url"
             android:layout_gravity="center_horizontal" />
 
