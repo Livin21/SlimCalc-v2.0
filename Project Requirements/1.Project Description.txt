@@ -1,0 +1,8 @@
+Problem Description
+
+I have developed a simple calculator to carry out simple airthmatic operations like addition, subtraction, multiplication and division. You can save values to memory variables A and B inthe app. It is named as SlimCalc
+
+The game consists of 3 user faced activities which are
+1)Calculator Activity
+2)Settings Activity
+3)About Activity
